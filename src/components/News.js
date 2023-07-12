@@ -1,0 +1,73 @@
+import React, { useState } from 'react';
+import NewsItem from './NewsItem.js';
+export default function News(){
+  const newsarticles= [
+    {
+      "source": { "id": "talksport", "name": "TalkSport" },
+      "author": "161385360554578",
+      "title": "Chelsea agree deal to sell Pulisic, Rice to Arsenal latest, Man United chase two stars",
+      "description": "talkSPORT.com brings you all the latest football news, views and transfer gossip. Check out the headline stories and follow our live blog below for regular updates throughout the day. Headlines: EV…",
+      "url": "https://talksport.com/football/1486182/football-news-live-rice-onana-arsenal-chelsea-man-utd/",
+      "urlToImage": "https://talksport.com/wp-content/uploads/sites/5/2023/07/PM-TALKSPORT-Blog-8th-July-AM.jpg?strip=all&quality=100&w=1500&h=1000&crop=1",
+      "publishedAt": "2023-07-08T08:49:04Z",
+      "content": "Liverpool and Arsenal fans have been told not to get their hopes up after reports linking both clubs with Kylian Mbappe.\r\nReports out of Spain yesterday claimed Liverpool have already put a 200millio… [+2044 chars]"
+    },
+    {
+      "source": { "id": "cnn", "name": "CNN" },
+      "author": "Jacob Lev, Aya Elamroussi",
+      "title": "Northwestern suspends head football coach for 2 weeks following investigation into hazing allegations",
+      "description": "Northwestern University has suspended head football coach Pat Fitzgerald for two weeks without pay following an investigation into allegations of hazing within the Wildcats’ program, the school announced Friday.",
+      "url": "https://www.cnn.com/2023/07/08/sport/northwestern-football-coach-pat-fitzgerald-suspended-spt/index.html",
+      "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/230708004146-northwestern-football-coach-suspended.jpg?c=16x9&q=w_800,c_fill",
+      "publishedAt": "2023-07-08T08:42:19Z",
+      "content": "Northwestern University has suspended head football coach Pat Fitzgerald for two weeks without pay following an investigation into allegations of hazing within the Wildcats program, the school announ… [+3108 chars]"
+    },
+    {
+      "source": { "id": "talksport", "name": "TalkSport" },
+      "author": "Lee Davey",
+      "title": "Atalanta interested in taking Mason Greenwood on loan from Manchester United...",
+      "description": "Atalanta are interested in taking forward Mason Greenwood on loan from Manchester United, talkSPORT understands. The Serie A side has held talks with Manchester United football director John Murtou…",
+      "url": "https://talksport.com/football/1491447/atalanta-mason-greenwood-man-utd-loan-transfer/",
+      "urlToImage": "https://talksport.com/wp-content/uploads/sites/5/2023/07/crop-1476370.jpg?strip=all&quality=100&w=1920&h=1080&crop=1",
+      "publishedAt": "2023-07-07T16:56:30Z",
+      "content": "Atalanta are interested in taking forward Mason Greenwood on loan from Manchester United, talkSPORT understands.\r\nThe Serie A side has held talks with Manchester United football director John Murtoug… [+1478 chars]"
+    },
+    {
+      "source": { "id": "espn", "name": "ESPN" },
+      "author": "Adam Rittenberg",
+      "title": "Pat Fitzgerald suspended 2 weeks in Northwestern hazing inquiry - ESPN",
+      "description": "Northwestern is implementing several measures to curb hazing within its football program, including a two-week suspension of coach Pat Fitzgerald, after an investigation found evidence to support a claim of problematic conduct.",
+      "url": "https://www.espn.com/college-football/story/_/id/37973549/pat-fitzgerald-suspended-northwestern-hazing-inquiry",
+      "urlToImage": "https://a2.espncdn.com/combiner/i?img=%2Fphoto%2F2023%2F0208%2Fr1128238_1296x729_16%2D9.jpg",
+      "publishedAt": "2023-07-07T13:51:00Z",
+      "content": "Northwestern is implementing several measures to curb hazing within its football program, including a two-week suspension of coach Pat Fitzgerald, after an investigation found evidence to support a c… [+1968 chars]"
+    },
+    {
+      "source": { "id": "espn-cric-info", "name": "ESPN Cric Info" },
+      "author": null,
+      "title": "Five famous people (and one cat) you didn't know have ESPNcricinfo profiles | ESPNcricinfo.com",
+      "description": "Why do a footballer, a Nobel laureate and a prime minister (no, not Imran Khan) find themselves in the ESPNcricinfo player database? | ESPNcricinfo.com",
+      "url": "http://www.espncricinfo.com/story/_/id/29102695/five-famous-people-one-cat-know-espncricinfo-profiles",
+      "urlToImage": "https://a.espncdn.com/i/cricket/cricinfo/1221668_1296x1296.gif",
+      "publishedAt": "2020-04-27T07:20:43Z",
+      "content": "Why do a cat, a footballer, a Nobel laureate and a prime minister find themselves in the ESPNcricinfo database? Here are six player profiles you wouldn't have expected we had.\r\nPeter the catThe only … [+5504 chars]"
+    }
+  ]
+  const [articles, setarticles] = useState(newsarticles);
+    return(
+        <div className="container my-3">
+        <h2>NewsMonkey-Top Headlines</h2>
+        <div className="row">
+          
+            {articles.map((element)=>{
+              return(<div className="col-md-4"key={element.url}>
+                        <NewsItem  title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} />
+                      </div>)
+            
+          })}
+            
+        </div>
+        </div>
+     
+    )
+}
