@@ -8,7 +8,7 @@ export default function NewsItem(props){
           <div className="card-body">
             <h5 className="card-title">{props.title.length>=44?`${props.title.slice(0,44)}...`:props.title}</h5>
             <p className="card-text">{props.description.length>=88?`${props.description.slice(0,88)}...`:props.description}</p>
-            <a href={props.newsUrl} target="_blank" className="btn btn-sm btn-primary">
+            <a href={props.newsUrl} className="btn btn-sm btn-dark">
               Read More
             </a>
           </div>
