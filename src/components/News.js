@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import NewsItem from './NewsItem.js';
+import propTypes from "prop-types";
 import Spinner from './Spinner.js';
 export default function News(props){
 
@@ -8,7 +9,7 @@ export default function News(props){
   const [totalResults, settotalResults] = useState();
   const [loading, setloading] = useState(true);
 
-  const api =`https://newsapi.org/v2/top-headlines?country=us&apiKey=83f995d140d748ff9626f2aa8a697ab3&pageSize=${props.pageSize}`;
+  const api =`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=83f995d140d748ff9626f2aa8a697ab3&pageSize=${props.pageSize}`;
 
   async function fetchData(){
     setloading(true);
@@ -34,7 +35,7 @@ export default function News(props){
     return(
         <div className="container my-3">
         
-        <h1 className='text-center'>NewsMonkey-Top Headlines</h1>
+        <h1 className='text-center'style={{margin:'40px 0px'}}>NewsMonkey-Top Headlines</h1>
         {loading && <Spinner/>}
         <div className="row">
           
@@ -54,3 +55,5 @@ export default function News(props){
      
     )
 }
+News.propTypes={country:propTypes.string,pageSize:propTypes.number,category:propTypes.string};
+News.defaultProps={country:"in",category:"general",pageSize:6};
